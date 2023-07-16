@@ -1,3 +1,4 @@
+import { TransitionPresets } from "@react-navigation/stack";
 import { Slot, Stack } from "expo-router";
 import { NativeBaseProvider } from "native-base";
 import { LogBox } from "react-native";
@@ -11,7 +12,12 @@ export default function RootLayout() {
     <NativeBaseProvider>
       <Stack screenOptions={{ headerShown: false }}>
         <Stack.Screen name="index" />
-        <Stack.Screen name="new-thread" options={{ presentation: "modal" }} />
+        <Stack.Screen
+          name="new-thread"
+          options={{
+            presentation: "modal",
+          }}
+        />
       </Stack>
     </NativeBaseProvider>
   );

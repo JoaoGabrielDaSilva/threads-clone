@@ -38,15 +38,19 @@ export const TabBar = () => {
         return (
           <Pressable
             key={route.name}
-            onPress={() =>
-              router.replace(!route?.redirect ? route.name : route.redirect)
-            }
+            onPress={() => {
+              if (route?.redirect) {
+                router.push(route.redirect);
+              } else {
+                router.replace(route.name);
+              }
+            }}
             disabled={isFocused}
           >
             <Icon
               as={TabIcon}
               color={isFocused ? "white" : "gray.500"}
-              size="2xl"
+              size="xl"
             />
           </Pressable>
         );
